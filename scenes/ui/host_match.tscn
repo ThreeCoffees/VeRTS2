@@ -41,6 +41,17 @@ uppercase = true
 [node name="HostDataContainer" type="VBoxContainer" parent="MenuContainer"]
 layout_mode = 2
 
+[node name="PortLabel" type="Label" parent="MenuContainer/HostDataContainer"]
+layout_mode = 2
+text = "Player count:"
+
+[node name="PortInput" type="SpinBox" parent="MenuContainer/HostDataContainer"]
+layout_mode = 2
+min_value = 2.0
+max_value = 4.0
+value = 2.0
+rounded = true
+
 [node name="PlayerCountLabel" type="Label" parent="MenuContainer/HostDataContainer"]
 layout_mode = 2
 text = "Player count:"
