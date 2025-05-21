@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdae3wuk5f0vj"]
+
+[ext_resource type="Script" uid="uid://bcwuapujeutc7" path="res://scripts/ui/JoinMatch.cs" id="1_brinm"]
+[ext_resource type="Shortcut" uid="uid://cg0ih28n1vs5y" path="res://resources/shorcuts/go_back_esc.tres" id="1_l58i1"]
+
+[node name="JoinMatchMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_brinm")
+
+[node name="GoBackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 142.0
+offset_bottom = 81.0
+shortcut = ExtResource("1_l58i1")
+text = "<– Go Back"
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -102.0
+offset_right = 400.0
+offset_bottom = 102.0
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="JoinMatchTitle" type="Label" parent="MenuContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Join Match"
+uppercase = true
+
+[node name="JoinDataContainer" type="VBoxContainer" parent="MenuContainer"]
+layout_mode = 2
+
+[node name="ServerIpLabel" type="Label" parent="MenuContainer/JoinDataContainer"]
+layout_mode = 2
+text = "Server IP:"
+
+[node name="ServerIpInput" type="LineEdit" parent="MenuContainer/JoinDataContainer"]
+layout_mode = 2
+placeholder_text = "127.0.0.1"
+
+[node name="NicknameLabel" type="Label" parent="MenuContainer/JoinDataContainer"]
+layout_mode = 2
+text = "Nickname:"
+
+[node name="NicknameInput" type="LineEdit" parent="MenuContainer/JoinDataContainer"]
+layout_mode = 2
+placeholder_text = "Nickname"
+
+[node name="JoinButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "Join"

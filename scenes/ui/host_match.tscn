@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://0quq2hbmysc3"]
+
+[ext_resource type="Shortcut" uid="uid://cg0ih28n1vs5y" path="res://resources/shorcuts/go_back_esc.tres" id="1_lmhq5"]
+[ext_resource type="Script" uid="uid://dtu6f7hjme2nu" path="res://scripts/ui/HostMatch.cs" id="1_v0jmj"]
+
+[node name="host_match" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v0jmj")
+
+[node name="GoBackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 50.0
+offset_top = 50.0
+shortcut = ExtResource("1_lmhq5")
+text = "<– Go Back"
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -102.0
+offset_right = 400.0
+offset_bottom = 102.0
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="HostMatchTitle" type="Label" parent="MenuContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Host Match"
+uppercase = true
+
+[node name="HostDataContainer" type="VBoxContainer" parent="MenuContainer"]
+layout_mode = 2
+
+[node name="PlayerCountLabel" type="Label" parent="MenuContainer/HostDataContainer"]
+layout_mode = 2
+text = "Player count:"
+
+[node name="PlayerCountInput" type="SpinBox" parent="MenuContainer/HostDataContainer"]
+layout_mode = 2
+min_value = 2.0
+max_value = 4.0
+value = 2.0
+rounded = true
+
+[node name="ArmySizeLabel" type="Label" parent="MenuContainer/HostDataContainer"]
+layout_mode = 2
+text = "Army Size:"
+
+[node name="ArmySizeInput" type="SpinBox" parent="MenuContainer/HostDataContainer"]
+layout_mode = 2
+value = 50.0
+rounded = true
+
+[node name="HostButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "Host"
