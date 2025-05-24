@@ -4,9 +4,12 @@
 
 [node name="Game" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(266, 225)
-
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(266, 225)
 texture = ExtResource("1_uwrxv")
+
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://crqaje4phnmqf")
+spawn_path = NodePath("../PlayerSpawn")
+
+[node name="PlayerSpawn" type="Node2D" parent="."]

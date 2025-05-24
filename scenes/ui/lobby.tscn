@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmdicb8k3ohmk"]
+
+[ext_resource type="Script" uid="uid://hfafgo1vvg5c" path="res://scripts/ui/Lobby.cs" id="1_5t5el"]
+[ext_resource type="Shortcut" uid="uid://cg0ih28n1vs5y" path="res://resources/shorcuts/go_back_esc.tres" id="1_efll3"]
+[ext_resource type="Shortcut" uid="uid://bn35cedsw0ipf" path="res://resources/shorcuts/proceed_enter.tres" id="2_5t5el"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2rbxb"]
+bg_color = Color(0.328616, 0.328616, 0.328616, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efll3"]
+bg_color = Color(0.192157, 0.192157, 0.192157, 1)
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5t5el")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2rbxb")
+
+[node name="DisconnectButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 50.0
+offset_top = 50.0
+shortcut = ExtResource("1_efll3")
+text = "<– Disconnect"
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -102.0
+offset_right = 400.0
+offset_bottom = 102.0
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="LobbyTtile" type="Label" parent="MenuContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Lobby"
+uppercase = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MenuContainer"]
+custom_minimum_size = Vector2(0, 182)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_efll3")
+horizontal_scroll_mode = 0
+
+[node name="PlayerList" type="VBoxContainer" parent="MenuContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="StartGameButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+shortcut = ExtResource("2_5t5el")
+text = "Start Game"

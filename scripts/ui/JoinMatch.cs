@@ -5,6 +5,10 @@ public partial class JoinMatch : Control
 {
     private Button GoBackButton;
     private Button JoinButton;
+
+    private LineEdit ServerIpInput;
+    private SpinBox PortInput;
+    private LineEdit NicknameInput;
     
     private PackedScene MainMenu;
 
@@ -13,6 +17,11 @@ public partial class JoinMatch : Control
 	{
         GoBackButton = GetNode<Button>("GoBackButton");
         JoinButton = GetNode<Button>("MenuContainer/JoinButton");
+
+        ServerIpInput = GetNode<LineEdit>("MenuContainer/JoinDataContainer/ServerIpInput");
+        PortInput = GetNode<SpinBox>("MenuContainer/JoinDataContainer/PortInput");
+        NicknameInput = GetNode<LineEdit>("MenuContainer/JoinDataContainer/NicknameInput");
+
         MainMenu = GD.Load<PackedScene>("res://scenes/ui/main_menu.tscn");
 
         JoinButton.GrabFocus();
@@ -21,16 +30,13 @@ public partial class JoinMatch : Control
         JoinButton.Pressed += OnJoinButtonPressed;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-
     private void OnGoBackButtonPressed(){
         GetTree().ChangeSceneToPacked(MainMenu);
     }
 
     private void OnJoinButtonPressed(){
         GD.Print("Join Game");
+    
+        MultiplayerManager.Instance.JoinServer(ServerIpInput.Text, (int)PortInput.Value);
     }
 }

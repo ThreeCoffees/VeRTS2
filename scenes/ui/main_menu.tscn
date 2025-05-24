@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbm7qmw2w4vt"]
+[gd_scene load_steps=3 format=3 uid="uid://bbm7qmw2w4vt"]
 
 [ext_resource type="Script" uid="uid://cwi55r4h78afm" path="res://scripts/ui/MainMenu.cs" id="1_sl1te"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sl1te"]
+bg_color = Color(0.328616, 0.328616, 0.328616, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +13,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sl1te")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sl1te")
 
 [node name="MenuContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

@@ -5,6 +5,10 @@ public partial class HostMatch : Control
 {
     private Button GoBackButton;
     private Button HostButton;
+
+    private SpinBox PortInput;
+    private SpinBox PlayerCountInput;
+    private SpinBox ArmySizeInput;
     
     private PackedScene MainMenu;
 
@@ -13,6 +17,11 @@ public partial class HostMatch : Control
 	{
         GoBackButton = GetNode<Button>("GoBackButton");
         HostButton = GetNode<Button>("MenuContainer/HostButton");
+
+        PortInput = GetNode<SpinBox>("MenuContainer/HostDataContainer/PortInput");
+        PlayerCountInput = GetNode<SpinBox>("MenuContainer/HostDataContainer/PlayerCountInput");
+        ArmySizeInput = GetNode<SpinBox>("MenuContainer/HostDataContainer/ArmySizeInput");
+
         MainMenu = GD.Load<PackedScene>("res://scenes/ui/main_menu.tscn");
 
         HostButton.GrabFocus();
@@ -21,16 +30,12 @@ public partial class HostMatch : Control
         HostButton.Pressed += OnHostButtonPressed;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-
     private void OnGoBackButtonPressed(){
         GetTree().ChangeSceneToPacked(MainMenu);
     }
 
     private void OnHostButtonPressed(){
         GD.Print("Host Game");
+        MultiplayerManager.Instance.StartServer((int)PortInput.Value, (int)PlayerCountInput.Value);
     }
 }
