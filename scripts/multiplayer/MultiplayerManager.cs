@@ -12,7 +12,9 @@ public partial class MultiplayerManager : Node
 
     public static Godot.Collections.Dictionary<long, PlayerInfo> Players = new Godot.Collections.Dictionary<long, PlayerInfo>();
 
-    private const string DefaultServerIP = "127.0.0.1";
+    public const string DefaultServerIP = "127.0.0.1";
+    public const int DefaultPort = 8080;
+    public const int DefaultPlayerCount = 2;
 
     public override void _Ready(){
         Instance = this;
