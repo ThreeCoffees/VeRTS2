@@ -24,6 +24,27 @@ public partial class MultiplayerManager : Node
         Multiplayer.ConnectedToServer += OnConnectionSuccess;
         Multiplayer.ConnectionFailed += OnConnectionFailed;
         Multiplayer.ServerDisconnected += OnServerDisconnected;
+
+        if(OS.HasFeature("dedicated_server")){
+            var args = OS.GetCmdlineUserArgs();
+            int port = DefaultPort;
+            int playerCount = DefaultPlayerCount;
+            foreach(var arg in args){
+                var keyValue = arg.Split("=");
+                switch(keyValue[0]){
+                    case "port":
+                        port = keyValue[1].ToInt();
+                        break;
+                    case "player-count":
+                        playerCount = keyValue[1].ToInt();
+                        break;
+                    default:
+                        GD.PrintErr("Unknown User Arg");
+                        break;
+                }
+            }
+            CallDeferred(MethodName.StartServer, port, playerCount);
+        }
     }
 
     public Error StartServer(int Port, int PlayerCount){
