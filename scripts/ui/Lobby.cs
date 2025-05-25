@@ -24,6 +24,13 @@ public partial class Lobby : Control
         MultiplayerManager.Instance.PlayerDisconnected += OnPlayerDisconnected;
     }
 
+    public override void _ExitTree(){
+        DisconnectButton.Pressed -= OnDisconnectButtonPressed;
+        StartGameButton.Pressed -= MultiplayerManager.Instance.OnStartGameButtonPressed;
+        MultiplayerManager.Instance.PlayerConnected -= OnPlayerConnected;
+        MultiplayerManager.Instance.PlayerDisconnected -= OnPlayerDisconnected;
+    }
+
     private void OnPlayerDisconnected(long Id)
     {
         Label playerLabel = PlayerList.GetNode<Label>("playerLabel_" + Id);
@@ -45,9 +52,6 @@ public partial class Lobby : Control
     private void OnDisconnectButtonPressed()
     {
         GD.Print("Leaving Game");
-
-        MultiplayerManager.Instance.PlayerConnected -= OnPlayerConnected;
-        MultiplayerManager.Instance.PlayerDisconnected -= OnPlayerDisconnected;
 
         Multiplayer.MultiplayerPeer.Close();
     }

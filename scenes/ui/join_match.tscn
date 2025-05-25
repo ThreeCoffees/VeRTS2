@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdae3wuk5f0vj"]
+[gd_scene load_steps=6 format=3 uid="uid://bdae3wuk5f0vj"]
 
 [ext_resource type="Script" uid="uid://bcwuapujeutc7" path="res://scripts/ui/JoinMatch.cs" id="1_brinm"]
 [ext_resource type="Shortcut" uid="uid://cg0ih28n1vs5y" path="res://resources/shorcuts/go_back_esc.tres" id="1_l58i1"]
-[ext_resource type="Shortcut" uid="uid://bn35cedsw0ipf" path="res://resources/shorcuts/proceed_enter.tres" id="3_brinm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmwbe"]
 bg_color = Color(0.328616, 0.328616, 0.328616, 1)
+
+[sub_resource type="InputEventKey" id="InputEventKey_v0jmj"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_bmwbe"]
+events = [SubResource("InputEventKey_v0jmj")]
 
 [node name="JoinMatchMenu" type="Control"]
 layout_mode = 3
@@ -84,5 +90,5 @@ placeholder_text = "Nickname"
 
 [node name="JoinButton" type="Button" parent="MenuContainer"]
 layout_mode = 2
-shortcut = ExtResource("3_brinm")
+shortcut = SubResource("Shortcut_bmwbe")
 text = "Join"

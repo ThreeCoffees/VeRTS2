@@ -1,15 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://ocvdr28mfdbh"]
+[gd_scene load_steps=3 format=3 uid="uid://ocvdr28mfdbh"]
 
 [ext_resource type="Texture2D" uid="uid://cjcbutk0f3mij" path="res://icon.svg" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://df6fvgnteo3lj" path="res://scripts/Game.cs" id="1_yqjtg"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_yqjtg")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(266, 225)
 texture = ExtResource("1_uwrxv")
-
-[node name="PlayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("uid://crqaje4phnmqf")
-spawn_path = NodePath("../PlayerSpawn")
 
 [node name="PlayerSpawn" type="Node2D" parent="."]

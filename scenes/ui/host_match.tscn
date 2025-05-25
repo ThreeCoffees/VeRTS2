@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://0quq2hbmysc3"]
+[gd_scene load_steps=4 format=3 uid="uid://0quq2hbmysc3"]
 
 [ext_resource type="Shortcut" uid="uid://cg0ih28n1vs5y" path="res://resources/shorcuts/go_back_esc.tres" id="1_lmhq5"]
 [ext_resource type="Script" uid="uid://dtu6f7hjme2nu" path="res://scripts/ui/HostMatch.cs" id="1_v0jmj"]
-[ext_resource type="Shortcut" uid="uid://bn35cedsw0ipf" path="res://resources/shorcuts/proceed_enter.tres" id="3_5boy1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0jmj"]
 bg_color = Color(0.328616, 0.328616, 0.328616, 1)
@@ -86,5 +85,4 @@ rounded = true
 
 [node name="HostButton" type="Button" parent="MenuContainer"]
 layout_mode = 2
-shortcut = ExtResource("3_5boy1")
 text = "Host"
