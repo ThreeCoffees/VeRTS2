@@ -10,8 +10,6 @@ public partial class HostMatch : Control
     private SpinBox PlayerCountInput;
     private SpinBox ArmySizeInput;
     
-    private PackedScene MainMenu;
-
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -22,8 +20,6 @@ public partial class HostMatch : Control
         PlayerCountInput = GetNode<SpinBox>("MenuContainer/HostDataContainer/PlayerCountInput");
         ArmySizeInput = GetNode<SpinBox>("MenuContainer/HostDataContainer/ArmySizeInput");
 
-        MainMenu = GD.Load<PackedScene>("res://scenes/ui/main_menu.tscn");
-
         HostButton.GrabFocus();
 
         GoBackButton.Pressed += OnGoBackButtonPressed;
@@ -31,7 +27,7 @@ public partial class HostMatch : Control
 	}
 
     private void OnGoBackButtonPressed(){
-        GetTree().ChangeSceneToPacked(MainMenu);
+        SceneManager.Instance.Scene = SceneManager.SceneEnum.MainMenu;
     }
 
     private void OnHostButtonPressed(){

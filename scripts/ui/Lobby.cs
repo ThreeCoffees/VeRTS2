@@ -7,15 +7,11 @@ public partial class Lobby : Control
     private Button StartGameButton;
     private VBoxContainer PlayerList;
 
-    private PackedScene GameScene;
-
     public override void _Ready(){
         DisconnectButton = GetNode<Button>("DisconnectButton");
         StartGameButton = GetNode<Button>("MenuContainer/StartGameButton");
         PlayerList = GetNode<VBoxContainer>("MenuContainer/ScrollContainer/PlayerList");
 
-        GameScene = GD.Load<PackedScene>("res://scenes/game.tscn");
-        
         StartGameButton.GrabFocus();
 
         DisconnectButton.Pressed += OnDisconnectButtonPressed;

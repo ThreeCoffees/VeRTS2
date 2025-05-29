@@ -48,7 +48,7 @@ public partial class MultiplayerManager : Node
     }
 
     public Error StartServer(int Port, int PlayerCount){
-        GetTree().ChangeSceneToFile("res://scenes/ui/lobby.tscn");
+        SceneManager.Instance.Scene = SceneManager.SceneEnum.Lobby;
 
         var ServerPeer = new ENetMultiplayerPeer();
         Error error = ServerPeer.CreateServer(Port, PlayerCount);
@@ -92,7 +92,7 @@ public partial class MultiplayerManager : Node
                     Multiplayer.GetUniqueId()
                 );
 
-        GetTree().ChangeSceneToFile("res://scenes/ui/lobby.tscn");
+        SceneManager.Instance.Scene = SceneManager.SceneEnum.Lobby;
     }
 
     public void OnConnectionFailed(){
@@ -102,7 +102,7 @@ public partial class MultiplayerManager : Node
     public void OnServerDisconnected(){
         GD.Print("Server disconnected");
         Players.Clear();
-        GetTree().ChangeSceneToFile("res://scenes/ui/main_menu.tscn");
+        SceneManager.Instance.Scene = SceneManager.SceneEnum.MainMenu;
     }
 
     public void OnStartGameButtonPressed()
@@ -112,7 +112,7 @@ public partial class MultiplayerManager : Node
 
     [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true, TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
     private void StartGame(){
-        GetTree().ChangeSceneToFile("res://scenes/game.tscn");
+        SceneManager.Instance.Scene = SceneManager.SceneEnum.Game;
     }
 
     [Rpc(MultiplayerApi.RpcMode.AnyPeer)]

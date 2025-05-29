@@ -9,8 +9,6 @@ public partial class JoinMatch : Control
     private LineEdit ServerIpInput;
     private SpinBox PortInput;
     private LineEdit NicknameInput;
-    
-    private PackedScene MainMenu;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -22,8 +20,6 @@ public partial class JoinMatch : Control
         PortInput = GetNode<SpinBox>("MenuContainer/JoinDataContainer/PortInput");
         NicknameInput = GetNode<LineEdit>("MenuContainer/JoinDataContainer/NicknameInput");
 
-        MainMenu = GD.Load<PackedScene>("res://scenes/ui/main_menu.tscn");
-
         JoinButton.GrabFocus();
 
         GoBackButton.Pressed += OnGoBackButtonPressed;
@@ -31,7 +27,7 @@ public partial class JoinMatch : Control
 	}
 
     private void OnGoBackButtonPressed(){
-        GetTree().ChangeSceneToPacked(MainMenu);
+        SceneManager.Instance.Scene = SceneManager.SceneEnum.MainMenu;
     }
 
     private void OnJoinButtonPressed(){
