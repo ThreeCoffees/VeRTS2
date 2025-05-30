@@ -1,0 +1,18 @@
+[gd_scene load_steps=7 format=3 uid="uid://bruj2xxqaf5th"]
+
+[ext_resource type="Script" uid="uid://dx4ofp7ovok67" path="res://scripts/autoloads/SceneManager.cs" id="1_aogjr"]
+[ext_resource type="PackedScene" uid="uid://bbm7qmw2w4vt" path="res://scenes/ui/main_menu.tscn" id="2_p6y8s"]
+[ext_resource type="PackedScene" uid="uid://bdae3wuk5f0vj" path="res://scenes/ui/join_match.tscn" id="3_t4f4e"]
+[ext_resource type="PackedScene" uid="uid://0quq2hbmysc3" path="res://scenes/ui/host_match.tscn" id="4_mjf7t"]
+[ext_resource type="PackedScene" uid="uid://cmdicb8k3ohmk" path="res://scenes/ui/lobby.tscn" id="5_lx4ki"]
+[ext_resource type="PackedScene" uid="uid://ocvdr28mfdbh" path="res://scenes/game.tscn" id="6_62nvh"]
+
+[node name="scene_manager" type="Node"]
+script = ExtResource("1_aogjr")
+scenes = Dictionary[int, PackedScene]({
+0: ExtResource("2_p6y8s"),
+1: ExtResource("3_t4f4e"),
+2: ExtResource("4_mjf7t"),
+3: ExtResource("5_lx4ki"),
+4: ExtResource("6_62nvh")
+})
