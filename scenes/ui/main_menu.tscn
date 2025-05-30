@@ -5,7 +5,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sl1te"]
 bg_color = Color(0.328616, 0.328616, 0.328616, 1)
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("JoinButton", "HostButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +13,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sl1te")
+JoinButton = NodePath("MenuContainer/ButtonsContainer/JoinButton")
+HostButton = NodePath("MenuContainer/ButtonsContainer/HostButton")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

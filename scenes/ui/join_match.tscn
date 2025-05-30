@@ -13,7 +13,7 @@ keycode = 4194309
 [sub_resource type="Shortcut" id="Shortcut_bmwbe"]
 events = [SubResource("InputEventKey_v0jmj")]
 
-[node name="JoinMatchMenu" type="Control"]
+[node name="JoinMatchMenu" type="Control" node_paths=PackedStringArray("GoBackButton", "JoinButton", "ServerIpInput", "PortInput", "NicknameInput")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,6 +21,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_brinm")
+GoBackButton = NodePath("GoBackButton")
+JoinButton = NodePath("MenuContainer/JoinButton")
+ServerIpInput = NodePath("MenuContainer/JoinDataContainer/ServerIpInput")
+PortInput = NodePath("MenuContainer/JoinDataContainer/PortInput")
+NicknameInput = NodePath("MenuContainer/JoinDataContainer/NicknameInput")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

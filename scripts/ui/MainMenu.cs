@@ -3,15 +3,14 @@ using System;
 
 public partial class MainMenu : Control
 {
+    [Export]
     private Button JoinButton;
+    [Export]
     private Button HostButton;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-        JoinButton = GetNode<Button>("MenuContainer/ButtonsContainer/JoinButton");
-        HostButton = GetNode<Button>("MenuContainer/ButtonsContainer/HostButton");
-
         JoinButton.GrabFocus();
 
         JoinButton.Pressed += OnJoinButtonPressed;

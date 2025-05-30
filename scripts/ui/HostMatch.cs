@@ -3,23 +3,21 @@ using System;
 
 public partial class HostMatch : Control
 {
+    [Export]
     private Button GoBackButton;
+    [Export]
     private Button HostButton;
 
+    [Export]
     private SpinBox PortInput;
+    [Export]
     private SpinBox PlayerCountInput;
+    [Export]
     private SpinBox ArmySizeInput;
     
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-        GoBackButton = GetNode<Button>("GoBackButton");
-        HostButton = GetNode<Button>("MenuContainer/HostButton");
-
-        PortInput = GetNode<SpinBox>("MenuContainer/HostDataContainer/PortInput");
-        PlayerCountInput = GetNode<SpinBox>("MenuContainer/HostDataContainer/PlayerCountInput");
-        ArmySizeInput = GetNode<SpinBox>("MenuContainer/HostDataContainer/ArmySizeInput");
-
         HostButton.GrabFocus();
 
         GoBackButton.Pressed += OnGoBackButtonPressed;

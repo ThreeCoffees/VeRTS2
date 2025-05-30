@@ -3,23 +3,21 @@ using System;
 
 public partial class JoinMatch : Control
 {
+    [Export]
     private Button GoBackButton;
+    [Export]
     private Button JoinButton;
 
+    [Export]
     private LineEdit ServerIpInput;
+    [Export]
     private SpinBox PortInput;
+    [Export]
     private LineEdit NicknameInput;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-        GoBackButton = GetNode<Button>("GoBackButton");
-        JoinButton = GetNode<Button>("MenuContainer/JoinButton");
-
-        ServerIpInput = GetNode<LineEdit>("MenuContainer/JoinDataContainer/ServerIpInput");
-        PortInput = GetNode<SpinBox>("MenuContainer/JoinDataContainer/PortInput");
-        NicknameInput = GetNode<LineEdit>("MenuContainer/JoinDataContainer/NicknameInput");
-
         JoinButton.GrabFocus();
 
         GoBackButton.Pressed += OnGoBackButtonPressed;
