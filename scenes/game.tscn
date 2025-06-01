@@ -15,4 +15,16 @@ texture = ExtResource("1_uwrxv")
 
 [node name="ArmySetupUI" type="CanvasLayer" parent="."]
 
-[node name="ShipSelectionMenu" parent="ArmySetupUI" instance=ExtResource("3_lnu2h")]
+[node name="ShipSelectionMenu" parent="ArmySetupUI" node_paths=PackedStringArray("shipSpawn") instance=ExtResource("3_lnu2h")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+shipSpawn = NodePath("../../ShipSpawn")
+
+[node name="ShipSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://y1u2be0cqu6i")
+spawn_path = NodePath("../ShipSpawn")
+spawn_limit = 5
+
+[node name="ShipSpawn" type="Node2D" parent="."]

@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4i8y0hgxwv6j"]
+[gd_scene load_steps=6 format=3 uid="uid://c4i8y0hgxwv6j"]
 
 [ext_resource type="Script" uid="uid://inim3wm15wn1" path="res://scripts/ui/ShipSelectionMenu.cs" id="1_vuvo0"]
 [ext_resource type="PackedScene" uid="uid://bokjk8mtxpr5q" path="res://scenes/ui/ship_selection_button.tscn" id="2_aejeg"]
+[ext_resource type="ButtonGroup" uid="uid://bvqfetj8y3imj" path="res://resources/ship_selection_btn_group.tres" id="3_63pn0"]
+[ext_resource type="PackedScene" uid="uid://y1u2be0cqu6i" path="res://scenes/entities/ship.tscn" id="4_fh2ye"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnu2h"]
 bg_color = Color(0.2, 0.2, 0.2, 0.666667)
@@ -13,6 +15,7 @@ corner_radius_bottom_left = 4
 [node name="ShipSelectionMenu" type="Control" node_paths=PackedStringArray("ShipsContainer")]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 3
+anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 16.0
 offset_top = 16.0
@@ -23,6 +26,8 @@ script = ExtResource("1_vuvo0")
 ShipsDirectory = "res://resources/ships"
 ShipsContainer = NodePath("ScrollContainer/MarginContainer/ShipsContainer")
 ShipButtonScene = ExtResource("2_aejeg")
+shipSelectionBtnGroup = ExtResource("3_63pn0")
+shipScene = ExtResource("4_fh2ye")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
