@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4i8y0hgxwv6j"]
+
+[ext_resource type="Script" uid="uid://inim3wm15wn1" path="res://scripts/ui/ShipSelectionMenu.cs" id="1_vuvo0"]
+[ext_resource type="PackedScene" uid="uid://bokjk8mtxpr5q" path="res://scenes/ui/ship_selection_button.tscn" id="2_aejeg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnu2h"]
+bg_color = Color(0.2, 0.2, 0.2, 0.666667)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="ShipSelectionMenu" type="Control" node_paths=PackedStringArray("ShipsContainer")]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 3
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = -16.0
+grow_vertical = 2
+script = ExtResource("1_vuvo0")
+ShipsDirectory = "res://resources/ships"
+ShipsContainer = NodePath("ScrollContainer/MarginContainer/ShipsContainer")
+ShipButtonScene = ExtResource("2_aejeg")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 366.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lnu2h")
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="ShipsContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2

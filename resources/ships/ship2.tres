@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ShipDataResource" load_steps=3 format=3 uid="uid://bs6mxf0pt5uhl"]
+
+[ext_resource type="Texture2D" uid="uid://cjcbutk0f3mij" path="res://icon.svg" id="1_0cuqf"]
+[ext_resource type="Script" uid="uid://dbgov6g4kr3jc" path="res://scripts/resources/ShipDataResource.cs" id="2_63bvf"]
+
+[resource]
+script = ExtResource("2_63bvf")
+ShipName = "Ship2"
+ShipDescription = "bla bla bla"
+ShipCost = 20
+ShipTexture = ExtResource("1_0cuqf")
+metadata/_custom_type_script = "uid://dbgov6g4kr3jc"

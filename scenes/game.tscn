@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ocvdr28mfdbh"]
+[gd_scene load_steps=4 format=3 uid="uid://ocvdr28mfdbh"]
 
 [ext_resource type="Texture2D" uid="uid://cjcbutk0f3mij" path="res://icon.svg" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://df6fvgnteo3lj" path="res://scripts/Game.cs" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://c4i8y0hgxwv6j" path="res://scenes/ui/ship_selection_menu.tscn" id="3_lnu2h"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_yqjtg")
@@ -11,3 +12,7 @@ position = Vector2(266, 225)
 texture = ExtResource("1_uwrxv")
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
+
+[node name="ArmySetupUI" type="CanvasLayer" parent="."]
+
+[node name="ShipSelectionMenu" parent="ArmySetupUI" instance=ExtResource("3_lnu2h")]

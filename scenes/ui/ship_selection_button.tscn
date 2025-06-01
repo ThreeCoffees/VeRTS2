@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=3 uid="uid://bokjk8mtxpr5q"]
+
+[ext_resource type="ButtonGroup" uid="uid://bvqfetj8y3imj" path="res://resources/ship_selection_btn_group.tres" id="1_65g4u"]
+[ext_resource type="Script" uid="uid://b24q2cpgwgrgk" path="res://scripts/ui/ShipSelectionButton.cs" id="1_kpi44"]
+[ext_resource type="Texture2D" uid="uid://cjcbutk0f3mij" path="res://icon.svg" id="2_kpi44"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehb8o"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.439216, 0.729412, 0.980392, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxr46"]
+bg_color = Color(0.4, 0.4, 0.4, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ravbl"]
+
+[node name="ShipSelectionButton" type="MarginContainer" node_paths=PackedStringArray("ShipNameLabel", "ShipDataLabel", "ShipCostLabel", "ShipIcon")]
+script = ExtResource("1_kpi44")
+ShipNameLabel = NodePath("MarginContainer/HBoxContainer/VBoxContainer/ShipName")
+ShipDataLabel = NodePath("MarginContainer/HBoxContainer/VBoxContainer/ShipData")
+ShipCostLabel = NodePath("Button/ShipCost")
+ShipIcon = NodePath("MarginContainer/HBoxContainer/ShipIcon")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ShipIcon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("2_kpi44")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShipName" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Ship name, might be longer"
+autowrap_mode = 2
+
+[node name="ShipData" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Opis i dane statku. Lorem ipsum itp. TODO.
+Speed: 10
+Guns: 2x10 attack
+something
+something"
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_ehb8o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nxr46")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ehb8o")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ravbl")
+toggle_mode = true
+button_group = ExtResource("1_65g4u")
+
+[node name="ShipCost" type="Label" parent="Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
+text = "10"
